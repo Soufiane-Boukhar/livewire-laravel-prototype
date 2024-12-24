@@ -9,10 +9,10 @@ use App\Livewire\posts\PostCreate;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/tasks/create', CreateTask::class);
-Route::get('/tasks', action: TaskManager::class);
+Route::get('/tasks', action: TaskManager::class)->name('tasks.index');
 
 Route::get('/posts/create', PostCreate::class)->name('posts.create');
 

@@ -4,13 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>{{ $title ?? 'Page Title' }}</title>
-</head>
-
-<body>
-    {{ $slot }}
-
     <style>
         /* General styles */
         body {
@@ -24,6 +18,38 @@
             color: #333;
         }
 
+        /* Header and Menu Styles */
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #000;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        /* General Styles */
         form {
             text-align: center;
             margin-bottom: 20px;
@@ -310,7 +336,20 @@
             background-color: #e0e0e0;
         }
     </style>
+</head>
 
+<body>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="{{ route('home') }}">Home</a></li>
+            <li><a href="{{ route('tasks.index') }}">Tasks</a></li>
+            <li><a href="{{ route('posts.index') }}">Posts</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content -->
+    {{ $slot }}
 </body>
 
 </html>
